@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 interface CreditEntry {
   role: string;
@@ -21,9 +21,25 @@ export const EndCreditsSection: React.FC = () => {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [hasCompleted, setHasCompleted] = useState<boolean>(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState<boolean>(false);
-  const trackRef = useRef<HTMLDivElement>(null);
 
-  // Check system prefers-reduced-motion
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  
+  // Animation state refs to prevent re-render thrashing
+  const animFrameRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
+  const currentYRef = useRef<number>(0);
+  const isPausedRef = useRef<boolean>(false);
+  const isVisibleRef = useRef<boolean>(false);
+  const hasCompletedRef = useRef<boolean>(false);
+  const isSkippedRef = useRef<boolean>(false);
+
+  // Sync state with refs for the RAF loop
+  isPausedRef.current = isPaused;
+  hasCompletedRef.current = hasCompleted;
+  isSkippedRef.current = isSkipped;
+
+  // Check prefers-reduced-motion
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
@@ -36,31 +52,149 @@ export const EndCreditsSection: React.FC = () => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // Animation frame loop
+  const animate = useCallback((currentTime: number) => {
+    if (!isVisibleRef.current || isSkippedRef.current || hasCompletedRef.current) {
+      animFrameRef.current = null;
+      return;
+    }
+
+    if (lastTimeRef.current === null) {
+      lastTimeRef.current = currentTime;
+    }
+
+    const deltaTime = (currentTime - lastTimeRef.current) / 1000;
+    lastTimeRef.current = currentTime;
+
+    if (!isPausedRef.current && trackRef.current && sectionRef.current) {
+      // Cinematic constant scrolling velocity: ~54px per second
+      const speed = 54;
+      currentYRef.current += speed * deltaTime;
+
+      const trackHeight = trackRef.current.offsetHeight;
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const startOffset = sectionHeight * 0.75;
+      const translateY = startOffset - currentYRef.current;
+
+      trackRef.current.style.transform = `translate3d(0, ${translateY}px, 0)`;
+
+      // Completion check: when the entire credit list and final punchline have comfortably passed into view
+      // The final card reaches optical center when translateY reaches - (trackHeight - sectionHeight * 0.5)
+      const stopThreshold = -(trackHeight - sectionHeight * 0.55);
+      if (translateY <= stopThreshold) {
+        setHasCompleted(true);
+        hasCompletedRef.current = true;
+        animFrameRef.current = null;
+        return;
+      }
+    }
+
+    animFrameRef.current = requestAnimationFrame(animate);
+  }, []);
+
+  const startAnimation = useCallback(() => {
+    if (animFrameRef.current !== null) {
+      cancelAnimationFrame(animFrameRef.current);
+    }
+    lastTimeRef.current = null;
+    animFrameRef.current = requestAnimationFrame(animate);
+  }, [animate]);
+
+  const stopAnimation = useCallback(() => {
+    if (animFrameRef.current !== null) {
+      cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = null;
+    }
+    lastTimeRef.current = null;
+  }, []);
+
+  const resetToStart = useCallback(() => {
+    currentYRef.current = 0;
+    if (trackRef.current && sectionRef.current) {
+      const sectionHeight = sectionRef.current.offsetHeight;
+      const startOffset = sectionHeight * 0.75;
+      trackRef.current.style.transform = `translate3d(0, ${startOffset}px, 0)`;
+    }
+  }, []);
+
+  // IntersectionObserver: Auto-play when visible, pause/reset when navigating away
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl || prefersReducedMotion) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          isVisibleRef.current = true;
+          // If we weren't already completed or skipped, start rolling automatically
+          if (!hasCompletedRef.current && !isSkippedRef.current) {
+            startAnimation();
+          }
+        } else {
+          isVisibleRef.current = false;
+          stopAnimation();
+          // If user scrolled completely away before finishing, allow replay on next visit
+          if (!hasCompletedRef.current && !isSkippedRef.current) {
+            resetToStart();
+          }
+        }
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    observer.observe(sectionEl);
+
+    return () => {
+      observer.disconnect();
+      stopAnimation();
+    };
+  }, [prefersReducedMotion, startAnimation, stopAnimation, resetToStart]);
+
+  // Handle Skip
   const handleSkip = () => {
+    stopAnimation();
     setIsSkipped(true);
     setHasCompleted(true);
   };
 
+  // Handle Replay
   const handleReplay = () => {
+    stopAnimation();
     setIsSkipped(false);
     setHasCompleted(false);
     setIsPaused(false);
-    if (trackRef.current) {
-      // Force CSS reflow to re-trigger the CSS animation
-      trackRef.current.style.animation = 'none';
-      void trackRef.current.offsetHeight;
-      trackRef.current.style.animation = '';
+    hasCompletedRef.current = false;
+    isSkippedRef.current = false;
+    isPausedRef.current = false;
+    resetToStart();
+    if (isVisibleRef.current) {
+      startAnimation();
     }
   };
 
+  // Handle Pause/Resume
   const togglePause = () => {
-    setIsPaused((prev) => !prev);
+    setIsPaused((prev) => {
+      const next = !prev;
+      isPausedRef.current = next;
+      if (!next && isVisibleRef.current) {
+        lastTimeRef.current = null;
+        if (animFrameRef.current === null) {
+          animFrameRef.current = requestAnimationFrame(animate);
+        }
+      }
+      return next;
+    });
   };
 
   return (
     <section 
+      ref={sectionRef}
       id="end-credits"
-      className="relative h-[92vh] sm:h-screen min-h-[640px] bg-[#040302] text-[#F5F2EA] flex flex-col items-center justify-center overflow-hidden select-none"
+      className="relative h-[94vh] sm:h-screen min-h-[640px] bg-[#040302] text-[#F5F2EA] flex flex-col items-center justify-center overflow-hidden select-none"
       aria-label="Cinematic End Credits"
     >
       {/* 
@@ -77,12 +211,12 @@ export const EndCreditsSection: React.FC = () => {
         TOP-RIGHT FLOATING THEATRICAL CONTROLS
         Skip Credits / Pause / Replay 
       */}
-      <div className="absolute top-6 right-6 sm:top-10 sm:right-12 z-30 flex items-center gap-4 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em]">
+      <div className="absolute top-6 right-6 sm:top-10 sm:right-12 z-30 flex items-center gap-3 sm:gap-4 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em]">
         {!isSkipped && !hasCompleted && !prefersReducedMotion && (
           <>
             <button
               onClick={togglePause}
-              className="text-[#8C867A] hover:text-[#F5F2EA] transition-colors cursor-pointer px-2 py-1 hairline bg-[#0C0B0A]/80 backdrop-blur"
+              className="text-[#8C867A] hover:text-[#F5F2EA] transition-colors cursor-pointer px-2.5 py-1 hairline bg-[#0C0B0A]/80 backdrop-blur"
               title={isPaused ? 'Resume rolling credits' : 'Pause credits'}
             >
               {isPaused ? '[ RESUME ▶ ]' : '[ PAUSE ❚❚ ]'}
@@ -107,20 +241,19 @@ export const EndCreditsSection: React.FC = () => {
       </div>
 
       {/* 
-        STATE A: ROLLING CREDITS VIEW (ACTIVE ANIMATION)
+        STATE A: ROLLING CREDITS VIEW (ACTIVE ANIMATION VIA GPU TRANSFORM)
       */}
       {!isSkipped && !prefersReducedMotion ? (
         <div 
           onClick={handleSkip}
-          className="w-full h-full flex flex-col items-center justify-center cursor-pointer relative z-10"
+          className="w-full h-full flex flex-col items-center justify-start cursor-pointer relative z-10 overflow-hidden"
           title="Click to skip credits"
         >
           <div 
             ref={trackRef}
-            onAnimationEnd={() => setHasCompleted(true)}
-            className="w-full max-w-3xl mx-auto flex flex-col items-center text-center animate-roll-credits space-y-16 sm:space-y-20 px-6"
+            className="w-full max-w-3xl mx-auto flex flex-col items-center text-center space-y-16 sm:space-y-20 px-6 will-change-transform"
             style={{
-              animationPlayState: isPaused ? 'paused' : 'running'
+              transform: 'translate3d(0, 75vh, 0)'
             }}
           >
             {/* Lead Production Card */}
