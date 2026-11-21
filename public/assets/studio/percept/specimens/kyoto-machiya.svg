@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="duskKyoto" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#19151e" />
+      <stop offset="60%" stop-color="#2d2226" />
+      <stop offset="100%" stop-color="#402e2b" />
+    </linearGradient>
+    <linearGradient id="charredCedar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#141110" />
+      <stop offset="40%" stop-color="#231d1a" />
+      <stop offset="100%" stop-color="#171413" />
+    </linearGradient>
+    <linearGradient id="paperLantern" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8e7" />
+      <stop offset="100%" stop-color="#e89d38" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Evening Sky -->
+  <rect width="1200" height="800" fill="url(#duskKyoto)" />
+
+  <!-- Traditional Machiya Clay Tile Eaves (Kawara Roof) -->
+  <!-- Upper Roof Ridge -->
+  <polygon points="100,180 1100,180 1160,240 40,240" fill="#2b2827" stroke="#121010" stroke-width="3" />
+  <!-- Eave tiles repeating shadow grooves -->
+  <g stroke="#1a1817" stroke-width="4" opacity="0.6">
+    <line x1="80" y1="240" x2="120" y2="190" /><line x1="140" y1="240" x2="180" y2="190" />
+    <line x1="200" y1="240" x2="240" y2="190" /><line x1="260" y1="240" x2="300" y2="190" />
+    <line x1="320" y1="240" x2="360" y2="190" /><line x1="380" y1="240" x2="420" y2="190" />
+    <line x1="440" y1="240" x2="480" y2="190" /><line x1="500" y1="240" x2="540" y2="190" />
+    <line x1="560" y1="240" x2="600" y2="190" /><line x1="620" y1="240" x2="660" y2="190" />
+    <line x1="680" y1="240" x2="720" y2="190" /><line x1="740" y1="240" x2="780" y2="190" />
+    <line x1="800" y1="240" x2="840" y2="190" /><line x1="860" y1="240" x2="900" y2="190" />
+    <line x1="920" y1="240" x2="960" y2="190" /><line x1="980" y1="240" x2="1020" y2="190" />
+    <line x1="1040" y1="240" x2="1080" y2="190" /><line x1="1100" y1="240" x2="1130" y2="200" />
+  </g>
+
+  <!-- Heavy Horizontal Timber Beams (Nageshi & Hari) -->
+  <rect x="60" y="240" width="1080" height="24" fill="#382920" stroke="#1c140f" stroke-width="2" />
+
+  <!-- Second Floor Mushiko-mado (Insect-cage plaster windows) -->
+  <rect x="100" y="264" width="1000" height="150" fill="#25201d" />
+  <!-- Charred cedar vertical siding (Yakisugi) -->
+  <g fill="url(#charredCedar)">
+    <rect x="100" y="264" width="280" height="150" />
+    <rect x="820" y="264" width="280" height="150" />
+  </g>
+  <!-- Central Mushiko earthen clay lattice window with amber glow -->
+  <rect x="420" y="280" width="360" height="110" fill="#0d0b09" stroke="#382920" stroke-width="4" />
+  <g fill="#e39134" opacity="0.18">
+    <rect x="425" y="285" width="350" height="100" />
+  </g>
+  <!-- Vertical plaster-coated bars -->
+  <g fill="#423932" stroke="#1d1916" stroke-width="1.5">
+    <rect x="445" y="280" width="12" height="110" />
+    <rect x="485" y="280" width="12" height="110" />
+    <rect x="525" y="280" width="12" height="110" />
+    <rect x="565" y="280" width="12" height="110" />
+    <rect x="605" y="280" width="12" height="110" />
+    <rect x="645" y="280" width="12" height="110" />
+    <rect x="685" y="280" width="12" height="110" />
+    <rect x="725" y="280" width="12" height="110" />
+  </g>
+
+  <!-- Lower Pent Roof (Hisashi) -->
+  <polygon points="40,414 1160,414 1190,454 10,454" fill="#282524" stroke="#151312" stroke-width="2" />
+  <rect x="10" y="454" width="1180" height="16" fill="#3d2c22" stroke="#17110c" stroke-width="2" />
+
+  <!-- Ground Floor Koushi Timber Lattice Facade (Gion / Miyagawacho signature) -->
+  <rect x="60" y="470" width="1080" height="230" fill="#0d0b0a" />
+
+  <!-- Ambient Washi paper backlight behind timber lattice -->
+  <rect x="220" y="490" width="760" height="190" fill="#f5eedc" opacity="0.85" />
+  <rect x="220" y="490" width="760" height="190" fill="url(#paperLantern)" opacity="0.3" />
+
+  <!-- Fine vertical timber battens (Koushi screen - 42 vertical slender slats) -->
+  <g fill="#211712" stroke="#0e0a07" stroke-width="0.8">
+    <!-- Frame -->
+    <rect x="200" y="475" width="800" height="220" fill="none" stroke="#2b1e17" stroke-width="8" />
+    <!-- Slats -->
+    <rect x="225" y="480" width="7" height="210" /><rect x="245" y="480" width="7" height="210" />
+    <rect x="265" y="480" width="7" height="210" /><rect x="285" y="480" width="7" height="210" />
+    <rect x="305" y="480" width="7" height="210" /><rect x="325" y="480" width="7" height="210" />
+    <rect x="345" y="480" width="7" height="210" /><rect x="365" y="480" width="7" height="210" />
+    <rect x="385" y="480" width="7" height="210" /><rect x="405" y="480" width="7" height="210" />
+    <rect x="425" y="480" width="7" height="210" /><rect x="445" y="480" width="7" height="210" />
+    <rect x="465" y="480" width="7" height="210" /><rect x="485" y="480" width="7" height="210" />
+    <rect x="505" y="480" width="7" height="210" /><rect x="525" y="480" width="7" height="210" />
+    <rect x="545" y="480" width="7" height="210" /><rect x="565" y="480" width="7" height="210" />
+    <rect x="585" y="480" width="7" height="210" /><rect x="605" y="480" width="7" height="210" />
+    <rect x="625" y="480" width="7" height="210" /><rect x="645" y="480" width="7" height="210" />
+    <rect x="665" y="480" width="7" height="210" /><rect x="685" y="480" width="7" height="210" />
+    <rect x="705" y="480" width="7" height="210" /><rect x="725" y="480" width="7" height="210" />
+    <rect x="745" y="480" width="7" height="210" /><rect x="765" y="480" width="7" height="210" />
+    <rect x="785" y="480" width="7" height="210" /><rect x="805" y="480" width="7" height="210" />
+    <rect x="825" y="480" width="7" height="210" /><rect x="845" y="480" width="7" height="210" />
+    <rect x="865" y="480" width="7" height="210" /><rect x="885" y="480" width="7" height="210" />
+    <rect x="905" y="480" width="7" height="210" /><rect x="925" y="480" width="7" height="210" />
+    <rect x="945" y="480" width="7" height="210" /><rect x="965" y="480" width="7" height="210" />
+    <!-- Horizontal Stiffener Rails -->
+    <rect x="200" y="540" width="800" height="7" />
+    <rect x="200" y="610" width="800" height="7" />
+  </g>
+
+  <!-- Inuyarai (Curved bamboo fence protecting wall base from splash) -->
+  <path d="M 80 700 C 80 655, 120 650, 160 700 Z" fill="#695738" stroke="#3b301c" stroke-width="2" />
+  <path d="M 1030 700 C 1030 655, 1070 650, 1110 700 Z" fill="#695738" stroke="#3b301c" stroke-width="2" />
+
+  <!-- Kyoto Granite Cobblestone Pavement (Ishidatami) -->
+  <rect x="0" y="700" width="1200" height="100" fill="#242220" />
+  <polygon points="0,700 1200,700 1200,720 0,720" fill="#302e2b" />
+  <!-- Wet Stone Sheen -->
+  <line x1="280" y1="740" x2="420" y2="740" stroke="#f5eedc" stroke-width="1.5" opacity="0.3" />
+  <line x1="620" y1="755" x2="800" y2="755" stroke="#f5eedc" stroke-width="1.5" opacity="0.25" />
+
+  <!-- Archival Watermark Annotation -->
+  <g font-family="monospace" font-size="11" fill="#D99535" letter-spacing="2">
+    <text x="40" y="40">KYOTO HISTORICAL MACHIYA · GION HIGASHIYAMA DISTRICT</text>
+    <text x="40" y="60" fill="#999">VERNACULAR TIMBER ARCHITECTURE · KOUSHI LATTICEWORK & YAKISUGI</text>
+  </g>
+  <rect x="1110" y="30" width="50" height="20" fill="none" stroke="#D99535" stroke-width="1.5" />
+  <text x="1120" y="44" font-family="monospace" font-size="10" fill="#D99535" font-weight="bold">#02</text>
+</svg>

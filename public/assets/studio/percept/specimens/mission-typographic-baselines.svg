@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <!-- Background Canvas -->
+  <rect width="600" height="400" fill="#141414" />
+  <rect x="15" y="15" width="570" height="370" fill="none" stroke="#292929" stroke-width="1.5" />
+
+  <!-- Urban Brick Facade (Subtle Mortar Pattern) -->
+  <rect x="40" y="40" width="520" height="320" fill="#241e1c" />
+  
+  <!-- Architectural Horizontal Stone Belt / Lintel (Accidental Baseline) -->
+  <rect x="40" y="195" width="520" height="20" fill="#3d3733" stroke="#1c1917" stroke-width="2" />
+  <rect x="40" y="200" width="520" height="4" fill="#695f59" />
+
+  <!-- Architectural Vertical Window Mullions -->
+  <rect x="110" y="70" width="14" height="125" fill="#302d2b" stroke="#1c1917" stroke-width="1.5" />
+  <rect x="250" y="70" width="14" height="125" fill="#302d2b" stroke="#1c1917" stroke-width="1.5" />
+  <rect x="390" y="70" width="14" height="125" fill="#302d2b" stroke="#1c1917" stroke-width="1.5" />
+
+  <!-- Urban Storefront Signboard Overlay -->
+  <rect x="90" y="160" width="420" height="70" fill="#0A0A0A" stroke="#403c39" stroke-width="2" />
+  
+  <!-- Signage Typography in High-Contrast Sans -->
+  <text x="120" y="208" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="44" fill="#EDEDED" letter-spacing="4">
+    KINETIC
+  </text>
+  <text x="365" y="208" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="28" fill="#D99535" letter-spacing="2">
+    OPTIC
+  </text>
+
+  <!-- Technical Red Laser Baseline Overlay (Highlighting the Accidental Alignment) -->
+  <line x1="40" y1="215" x2="560" y2="215" stroke="#E63946" stroke-width="2" stroke-dasharray="6 4" />
+  
+  <!-- Measurement Crosshair at Typographic Baseline Contact -->
+  <circle cx="120" cy="215" r="4" fill="#E63946" />
+  <circle cx="365" cy="215" r="4" fill="#E63946" />
+  <circle cx="510" cy="215" r="4" fill="#E63946" />
+
+  <!-- Annotation Marker -->
+  <g font-family="monospace" font-size="9" fill="#E63946">
+    <line x1="450" y1="215" x2="490" y2="265" stroke="#E63946" stroke-width="1.5" />
+    <circle cx="450" cy="215" r="3" fill="#E63946" />
+    <text x="380" y="280" font-weight="bold">MORTAR JOINT = LETTER BASELINE</text>
+    <text x="380" y="295" fill="#999">Δy = 0.00mm Optical coincidence</text>
+  </g>
+
+  <!-- Archival Header Badge -->
+  <g font-family="monospace" font-size="9" fill="#D99535">
+    <rect x="50" y="50" width="260" height="24" fill="#0A0A0A" stroke="#292929" stroke-width="1" />
+    <text x="60" y="66" font-weight="bold">FIELD OBSERVATION #02 · ACCIDENTAL BASELINE</text>
+  </g>
+</svg>

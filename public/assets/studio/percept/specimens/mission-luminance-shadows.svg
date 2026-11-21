@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <!-- Background Canvas -->
+  <rect width="600" height="400" fill="#141414" />
+  <rect x="15" y="15" width="570" height="370" fill="none" stroke="#292929" stroke-width="1.5" />
+
+  <!-- Concrete Monolith Wall Under Harsh 2:00 PM Direct Sunlight -->
+  <rect x="40" y="40" width="520" height="320" fill="#D6D1CA" />
+
+  <!-- Deep Architectural Cast Shadow (45° Diagonal Razor-Sharp Acuity) -->
+  <polygon points="40,40 560,40 240,360 40,360" fill="#1C1A19" opacity="0.92" />
+
+  <!-- Diagonal Dividing Edge (The Locus of Optical Edge Acuity) -->
+  <line x1="560" y1="40" x2="240" y2="360" stroke="#0A0A0A" stroke-width="2" />
+
+  <!-- Luminance Contrast Measurement Ticks -->
+  <g font-family="monospace" font-size="11">
+    <!-- Shadow Field -->
+    <text x="90" y="180" fill="#FFFFFF" font-weight="bold">LUMINANCE: 4 cd/m²</text>
+    <text x="90" y="200" fill="#888">DEEP CAST SHADOW</text>
+
+    <!-- Lit Field -->
+    <text x="360" y="260" fill="#0A0A0A" font-weight="bold">LUMINANCE: 120 cd/m²</text>
+    <text x="360" y="280" fill="#555">DIRECT SOLAR ILLUMINATION</text>
+
+    <!-- Contrast Ratio Indicator Callout -->
+    <g transform="translate(390, 140)">
+      <rect x="0" y="0" width="140" height="45" fill="#0A0A0A" stroke="#D99535" stroke-width="1.5" />
+      <text x="14" y="22" fill="#D99535" font-weight="bold">CONTRAST 30:1</text>
+      <text x="14" y="36" fill="#888" font-size="9">MACH BAND PERCEPTION</text>
+    </g>
+  </g>
+
+  <!-- Laser Reticle Line along Edge Acuity -->
+  <line x1="420" y1="180" x2="380" y2="220" stroke="#E63946" stroke-width="1.5" />
+  <circle cx="400" cy="200" r="4" fill="#E63946" />
+
+  <!-- Archival Header Badge -->
+  <g font-family="monospace" font-size="9" fill="#D99535">
+    <rect x="50" y="50" width="260" height="24" fill="#0A0A0A" stroke="#292929" stroke-width="1" />
+    <text x="60" y="66" font-weight="bold">FIELD OBSERVATION #03 · LUMINANCE SHADOW</text>
+  </g>
+</svg>

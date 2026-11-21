@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <!-- Background Canvas -->
+  <rect width="600" height="400" fill="#141414" />
+  <rect x="15" y="15" width="570" height="370" fill="none" stroke="#292929" stroke-width="1.5" />
+
+  <!-- Urban Park Surface (Lawn & Concrete Sidewalks) -->
+  <rect x="40" y="40" width="520" height="320" fill="#1e241c" />
+
+  <!-- Rigid Municipal Concrete Sidewalk (90-Degree Right Angle) -->
+  <path d="M 40 100 L 480 100 L 480 360" fill="none" stroke="#3d3d3d" stroke-width="48" stroke-linecap="square" />
+  <path d="M 40 100 L 480 100 L 480 360" fill="none" stroke="#525252" stroke-width="42" stroke-linecap="square" />
+  <!-- Sidewalk Joint Lines -->
+  <line x1="140" y1="76" x2="140" y2="124" stroke="#242424" stroke-width="2" />
+  <line x1="240" y1="76" x2="240" y2="124" stroke="#242424" stroke-width="2" />
+  <line x1="340" y1="76" x2="340" y2="124" stroke="#242424" stroke-width="2" />
+  <line x1="440" y1="76" x2="440" y2="124" stroke="#242424" stroke-width="2" />
+  <line x1="456" y1="200" x2="504" y2="200" stroke="#242424" stroke-width="2" />
+  <line x1="456" y1="280" x2="504" y2="280" stroke="#242424" stroke-width="2" />
+
+  <!-- The Organic Desire Path (Hypotenuse cutting across the lawn) -->
+  <!-- Worn dirt track with subtle texture -->
+  <path d="M 120 124 C 200 160, 360 220, 456 310" fill="none" stroke="#635338" stroke-width="26" stroke-linecap="round" />
+  <path d="M 120 124 C 200 160, 360 220, 456 310" fill="none" stroke="#87714c" stroke-width="16" stroke-linecap="round" />
+  <path d="M 120 124 C 200 160, 360 220, 456 310" fill="none" stroke="#9e8457" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Human Trajectory Footsteps Annotation -->
+  <path d="M 120 124 C 200 160, 360 220, 456 310" fill="none" stroke="#D99535" stroke-width="1.5" stroke-dasharray="4 6" />
+
+  <!-- Curatorial Wayfinding Markers -->
+  <circle cx="120" cy="124" r="5" fill="#D99535" />
+  <circle cx="456" cy="310" r="5" fill="#D99535" />
+
+  <!-- Measurement Arc / Angle Indicator -->
+  <path d="M 440 100 A 40 40 0 0 1 480 140" fill="none" stroke="#E63946" stroke-width="2" />
+  <text x="430" y="80" font-family="monospace" font-size="10" fill="#E63946" font-weight="bold">90° PLANNED DETOUR</text>
+
+  <!-- Technical Archival Tag -->
+  <g font-family="monospace" font-size="9" fill="#D99535">
+    <rect x="50" y="50" width="220" height="24" fill="#0A0A0A" stroke="#292929" stroke-width="1" />
+    <text x="60" y="66" font-weight="bold">FIELD OBSERVATION #01 · DESIRE PATH</text>
+  </g>
+
+  <g font-family="monospace" font-size="10" fill="#EDEDED">
+    <text x="60" y="340" fill="#D99535">ORGANIC BEHAVIOR VS MUNICIPAL GRID</text>
+    <text x="60" y="356" fill="#888">Human energy minimization overriding architectural intention</text>
+  </g>
+</svg>

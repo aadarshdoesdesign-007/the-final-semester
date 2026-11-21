@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <!-- Archival Canvas Background -->
+  <rect width="800" height="1000" fill="#121212" />
+  <rect x="24" y="24" width="752" height="952" fill="none" stroke="#292929" stroke-width="1.5" />
+
+  <!-- Underlying Swiss 32-Module Typographic Grid -->
+  <g stroke="#1F1F1F" stroke-width="1">
+    <line x1="60" y1="60" x2="60" y2="940" />
+    <line x1="230" y1="60" x2="230" y2="940" />
+    <line x1="400" y1="60" x2="400" y2="940" />
+    <line x1="570" y1="60" x2="570" y2="940" />
+    <line x1="740" y1="60" x2="740" y2="940" />
+    <line x1="60" y1="60" x2="740" y2="60" />
+    <line x1="60" y1="280" x2="740" y2="280" />
+    <line x1="60" y1="500" x2="740" y2="500" />
+    <line x1="60" y1="720" x2="740" y2="720" />
+    <line x1="60" y1="940" x2="740" y2="940" />
+  </g>
+
+  <!-- Curatorial Header Index -->
+  <g font-family="monospace" font-size="11" fill="#777">
+    <text x="60" y="50" fill="#D99535" font-weight="bold">MONOGRAPH #01 · CANONICAL MASTER</text>
+    <text x="740" y="50" text-anchor="end">ZÜRICH · 1914-1996</text>
+  </g>
+
+  <!-- Graphic Portrait Silhouette / Constructivist Silhouette of Josef Müller-Brockmann -->
+  <g transform="translate(60, 80)">
+    <!-- High-Contrast Monochrome Duotone Field -->
+    <rect x="0" y="0" width="680" height="520" fill="#0A0A0A" stroke="#292929" stroke-width="1.5" />
+
+    <!-- Pure Geometric Typographic Study Composition in Duotone (Black / Off-White / Red) -->
+    <!-- Sharp Asymmetric Geometries Inspired by Müller-Brockmann's "Musica Viva" and "Der Film" Posters -->
+    <g transform="translate(340, 260)">
+      <!-- Musical Acoustic Expanding Waves (Beethoven / Stravinsky series) -->
+      <path d="M 0 0 L -220 -180 A 280 280 0 0 1 200 -200 Z" fill="#E63946" opacity="0.9" />
+      <path d="M 0 0 L -140 -100 A 180 180 0 0 1 120 -120 Z" fill="#EDEDED" />
+      <path d="M 0 0 L 160 80 A 240 240 0 0 1 -180 160 Z" fill="#D99535" opacity="0.85" />
+      <path d="M 0 0 L 90 40 A 120 120 0 0 1 -100 80 Z" fill="#EDEDED" />
+      
+      <!-- Central Focus Pivot -->
+      <circle cx="0" cy="0" r="14" fill="#0A0A0A" stroke="#FFFFFF" stroke-width="3" />
+      <circle cx="0" cy="0" r="4" fill="#E63946" />
+    </g>
+
+    <!-- Overlay Monograph Name Tag in Akzidenz-Grotesk -->
+    <rect x="0" y="440" width="680" height="80" fill="#0A0A0A" opacity="0.95" />
+    <line x1="0" y1="440" x2="680" y2="440" stroke="#292929" stroke-width="1.5" />
+    <text x="30" y="492" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="34" fill="#EDEDED" letter-spacing="-1">
+      JOSEF MÜLLER-BROCKMANN
+    </text>
+    <text x="650" y="490" font-family="monospace" font-size="12" font-weight="bold" fill="#D99535" text-anchor="end">
+      SWISS STYLE
+    </text>
+  </g>
+
+  <!-- Theoretical Monograph Manifesto Excerpt -->
+  <g transform="translate(60, 640)" font-family="'Helvetica Neue', Arial, sans-serif">
+    <text x="0" y="30" font-size="22" font-weight="700" fill="#EDEDED">
+      Pioneer of the Mathematical Grid System
+    </text>
+
+    <!-- Swiss Asymmetric Two-Column Body -->
+    <g font-size="13" fill="#888" line-height="1.5">
+      <text x="0" y="70">As co-founder of the seminal journal Neue Grafik</text>
+      <text x="0" y="92">(New Graphic Design) in 1958, Müller-Brockmann</text>
+      <text x="0" y="114">established an uncompromising doctrine of objective,</text>
+      <text x="0" y="136">constructive visual communication.</text>
+
+      <text x="360" y="70">His master text "Grid Systems in Graphic Design"</text>
+      <text x="360" y="92">remains the authoritative standard for editorial</text>
+      <text x="360" y="114">architecture, defining baseline ratios, modular fields,</text>
+      <text x="360" y="136">and the functional harmony of white space.</text>
+    </g>
+
+    <!-- Horizontal Archival Rule -->
+    <line x1="0" y1="180" x2="680" y2="180" stroke="#292929" stroke-width="1.5" />
+
+    <!-- Canonical Works Ribbon -->
+    <g transform="translate(0, 220)" font-family="monospace" font-size="10" fill="#999">
+      <text x="0" y="0" fill="#D99535" font-weight="bold">KEY WORKS:</text>
+      <text x="90" y="0">· MUSICA VIVA CONCERT POSTERS (1951-1972)</text>
+      <text x="90" y="20">· DER FILM EXHIBITION POSTER (1960)</text>
+      <text x="90" y="40">· GRID SYSTEMS IN GRAPHIC DESIGN (1981)</text>
+    </g>
+  </g>
+</svg>

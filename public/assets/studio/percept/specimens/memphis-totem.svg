@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="100%" height="100%">
+  <!-- Background Radical Chrome Yellow -->
+  <rect width="900" height="1200" fill="#FFE600" />
+
+  <!-- Iconic Sottsass Bacterio / Squiggle Pattern Background -->
+  <defs>
+    <pattern id="bacterio" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 10 10 Q 25 5 25 25 Q 25 45 40 40 Q 55 35 50 55" fill="none" stroke="#0A0A0A" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M 5 45 Q 15 35 30 45" fill="none" stroke="#0A0A0A" stroke-width="4.5" stroke-linecap="round" />
+    </pattern>
+  </defs>
+
+  <!-- Side Pattern Panels -->
+  <rect x="40" y="40" width="120" height="1120" fill="url(#bacterio)" stroke="#0A0A0A" stroke-width="4" />
+  <rect x="740" y="40" width="120" height="1120" fill="url(#bacterio)" stroke="#0A0A0A" stroke-width="4" />
+
+  <!-- Center Archival Display Zone -->
+  <!-- Top Milano Plaque -->
+  <rect x="190" y="60" width="520" height="60" fill="#0A0A0A" />
+  <text x="450" y="100" font-family="'Courier New', monospace" font-size="22" font-weight="900" fill="#FFE600" text-anchor="middle" letter-spacing="4">
+    MEMPHIS MILANO · 1981
+  </text>
+
+  <!-- Ettore Sottsass Casablanca Sideboard / Carlton Totem Geometric Assemblage -->
+  <g transform="translate(450, 600)">
+    <!-- Base Plinth in Cyan -->
+    <rect x="-240" y="320" width="480" height="50" fill="#4CC9F0" stroke="#0A0A0A" stroke-width="6" />
+
+    <!-- Striped Lower Core -->
+    <rect x="-180" y="220" width="360" height="100" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="6" />
+    <line x1="-120" y1="220" x2="-120" y2="320" stroke="#0A0A0A" stroke-width="6" />
+    <line x1="-60" y1="220" x2="-60" y2="320" stroke="#0A0A0A" stroke-width="6" />
+    <line x1="0" y1="220" x2="0" y2="320" stroke="#0A0A0A" stroke-width="6" />
+    <line x1="60" y1="220" x2="60" y2="320" stroke="#0A0A0A" stroke-width="6" />
+    <line x1="120" y1="220" x2="120" y2="320" stroke="#0A0A0A" stroke-width="6" />
+
+    <!-- Magenta Central Cantilever Block -->
+    <rect x="-140" y="120" width="280" height="100" fill="#F72585" stroke="#0A0A0A" stroke-width="6" />
+
+    <!-- Angled Cantilever Wings (Signature Carlton / Casablanca silhouette) -->
+    <!-- Left Angled Wing in Deep Purple -->
+    <polygon points="-140,140 -260,20 -240,-10 -140,100" fill="#7209B7" stroke="#0A0A0A" stroke-width="6" />
+    <!-- Right Angled Wing in Bright Orange -->
+    <polygon points="140,140 260,20 240,-10 140,100" fill="#FF5400" stroke="#0A0A0A" stroke-width="6" />
+
+    <!-- Second Level Horizontal Shelf in Cyan -->
+    <rect x="-220" y="0" width="440" height="25" fill="#4CC9F0" stroke="#0A0A0A" stroke-width="6" />
+
+    <!-- Upper Angled Diagonal Struts -->
+    <polygon points="-120,0 -180,-160 -150,-170 -90,0" fill="#FF5400" stroke="#0A0A0A" stroke-width="6" />
+    <polygon points="120,0 180,-160 150,-170 90,0" fill="#7209B7" stroke="#0A0A0A" stroke-width="6" />
+
+    <!-- Crown Triangular Pediment in Emerald Green -->
+    <polygon points="0,-320 -110,-170 110,-170" fill="#06D6A0" stroke="#0A0A0A" stroke-width="6" />
+    
+    <!-- Red Sphere Finial at Top Apex -->
+    <circle cx="0" cy="-350" r="30" fill="#E63946" stroke="#0A0A0A" stroke-width="6" />
+  </g>
+
+  <!-- Archival Metadata Placard -->
+  <g transform="translate(450, 1060)" font-family="monospace" text-anchor="middle">
+    <rect x="-260" y="-30" width="520" height="70" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="4" />
+    <text x="0" y="-4" font-size="14" font-weight="bold" fill="#0A0A0A">CASABLANCA TOTEM & BACTERIA LAMINATE</text>
+    <text x="0" y="22" font-size="11" fill="#666">ETTORE SOTTSASS · POST-MODERN RADICAL DISRUPTION</text>
+  </g>
+</svg>

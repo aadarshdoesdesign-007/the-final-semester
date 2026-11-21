@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="100%" height="100%">
+  <!-- Archival Gallery Background -->
+  <rect width="900" height="1100" fill="#0F0F0F" />
+  <rect x="25" y="25" width="850" height="1050" fill="none" stroke="#292929" stroke-width="1.5" />
+
+  <!-- Technical Specimen Metadata Header -->
+  <g font-family="monospace" font-size="11" fill="#888">
+    <text x="50" y="65" fill="#D99535" font-weight="bold">SPECIMEN ARCHIVE · OBJECT INTELLIGENCE</text>
+    <text x="50" y="85">ACHILLE & PIER GIACOMO CASTIGLIONI · FLOS (BRESCIA, 1962)</text>
+    <line x1="50" y1="102" x2="850" y2="102" stroke="#292929" stroke-width="1" />
+  </g>
+
+  <!-- Technical Elevation Drawing of the Arco Floor Lamp -->
+  <g transform="translate(100, 160)">
+    <!-- Dimension Grid Annotation Lines -->
+    <line x1="160" y1="780" x2="160" y2="50" stroke="#333" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="160" y1="50" x2="620" y2="50" stroke="#333" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="620" y1="50" x2="620" y2="520" stroke="#333" stroke-width="1" stroke-dasharray="4 4" />
+
+    <!-- Massive Monumental Carrara Marble Base (Monolithic Rectangular Block) -->
+    <g transform="translate(90, 520)">
+      <!-- Marble Texture Gradient and Veins -->
+      <defs>
+        <linearGradient id="carraraMarble" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#EBEBEA" />
+          <stop offset="35%" stop-color="#DCDCDA" />
+          <stop offset="70%" stop-color="#EDEDEB" />
+          <stop offset="100%" stop-color="#D0CFCC" />
+        </linearGradient>
+      </defs>
+
+      <!-- 3D Beveled Marble Block -->
+      <!-- Front Face -->
+      <rect x="0" y="0" width="140" height="260" rx="8" fill="url(#carraraMarble)" stroke="#9E9E9C" stroke-width="2" />
+      
+      <!-- Subtle Marble Veining -->
+      <path d="M 20 10 Q 50 80 40 140 T 70 240" fill="none" stroke="#A8A8A6" stroke-width="1.8" opacity="0.6" />
+      <path d="M 90 20 Q 80 100 110 180" fill="none" stroke="#B8B8B6" stroke-width="1.2" opacity="0.5" />
+      <path d="M 10 180 Q 40 200 60 250" fill="none" stroke="#A8A8A6" stroke-width="1.5" opacity="0.5" />
+
+      <!-- The Famous Functional Through-Hole (Engineered for a broomstick to carry the 65kg base) -->
+      <circle cx="70" cy="80" r="22" fill="#0F0F0F" stroke="#383838" stroke-width="4" />
+      <!-- Interior shadow inside the hole -->
+      <path d="M 54 66 A 22 22 0 0 1 86 94 Z" fill="#1C1C1C" />
+
+      <!-- Leader Line Calling Out the Broomstick Hole -->
+      <line x1="92" y1="80" x2="230" y2="80" stroke="#D99535" stroke-width="1.5" />
+      <circle cx="92" cy="80" r="3" fill="#D99535" />
+      <text x="240" y="75" font-family="monospace" font-size="11" font-weight="bold" fill="#D99535">20MM MONOLITHIC PASS-THROUGH HOLE</text>
+      <text x="240" y="93" font-family="monospace" font-size="10" fill="#888">Inserted broom handle allows two adults to lift 65kg base.</text>
+
+      <text x="70" y="220" font-family="monospace" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">
+        65 KG
+      </text>
+      <text x="70" y="240" font-family="monospace" font-size="9" fill="#666" text-anchor="middle">
+        WHITE CARRARA
+      </text>
+    </g>
+
+    <!-- Telescoping Stainless Steel Sweeping Arch (Sectioned U-profile channels) -->
+    <!-- Curved Spine Arc -->
+    <path d="M 160 520 C 160 100, 360 20, 620 20 C 650 20, 680 40, 680 80 L 680 180" 
+          fill="none" stroke="#E0E0E0" stroke-width="10" stroke-linecap="round" />
+    <path d="M 160 520 C 160 100, 360 20, 620 20 C 650 20, 680 40, 680 80 L 680 180" 
+          fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+
+    <!-- Adjustable Telescoping Joints (3 Nested Segments) -->
+    <rect x="235" y="195" width="22" height="16" fill="#888" transform="rotate(-35 235 195)" />
+    <rect x="420" y="45" width="22" height="16" fill="#888" transform="rotate(-5 420 45)" />
+
+    <!-- Two-Piece Perforated Spun-Aluminium Reflector Hood & Swivel Cap -->
+    <g transform="translate(680, 240)">
+      <!-- Upper Perforated Dome / Crown -->
+      <path d="M -26 -50 C -26 -65, 26 -65, 26 -50 Z" fill="#D0D0D0" stroke="#888" stroke-width="1.5" />
+      <!-- Lower Hemispherical Aluminum Lamp Reflector -->
+      <path d="M -54 -20 C -54 -70, 54 -70, 54 -20 Z" fill="#E8E8E8" stroke="#999" stroke-width="2" />
+      <ellipse cx="0" cy="-20" rx="54" ry="12" fill="#D8D8D8" stroke="#777" stroke-width="2" />
+      
+      <!-- Radiant Luminaire Down-Beam (Warm Illumination cone) -->
+      <polygon points="-54,-10 54,-10 180,480 -180,480" fill="#FFE600" opacity="0.08" />
+
+      <!-- Leader line for Reflector -->
+      <line x1="-54" y1="-30" x2="-140" y2="-30" stroke="#D99535" stroke-width="1" />
+      <circle cx="-54" cy="-30" r="3" fill="#D99535" />
+      <text x="-150" y="-26" font-family="monospace" font-size="10" fill="#D99535" text-anchor="end">SPUN ALUMINIUM HOOD</text>
+    </g>
+  </g>
+
+  <!-- Curatorial Caption at Bottom -->
+  <g font-family="monospace" font-size="11" fill="#777" text-anchor="middle">
+    <text x="450" y="1005" fill="#EDEDED" font-weight="bold">ARCO FLOOR LAMP · FLOS 1962</text>
+    <text x="450" y="1025">SUSPENDED OVERHEAD ILLUMINATION WITHOUT CEILING WIRING OR DRILLING</text>
+  </g>
+</svg>
