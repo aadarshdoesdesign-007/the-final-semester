@@ -258,8 +258,8 @@ export const SeminarHorizontalTimeline: React.FC = () => {
             <span className="uppercase text-[#F5F2EA]">{current.tagline}</span>
           </div>
 
-          <div className="text-[10px] uppercase tracking-wider text-[#C5A059] shrink-0">
-            {current.academicCriteria}
+          <div className="text-[10px] uppercase tracking-wider text-[#C5A059] shrink-0 font-bold">
+            {current.statusBadge}
           </div>
         </div>
 
@@ -333,19 +333,19 @@ export const SeminarHorizontalTimeline: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Dedicated Research Documentation Slot (5 cols) */}
+          {/* Right Column: Dedicated Research Documentation (5 cols) */}
           <div className="lg:col-span-5 hairline-l pl-0 lg:pl-8 space-y-6">
             
             <div className="flex items-baseline justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#8C867A] block">
-                [ Stage Documentation Artifact ]
+                [ Primary Research Deliverable ]
               </span>
-              <span className="font-mono text-[9px] text-[#C5A059] uppercase tracking-wider font-bold">
-                {current.statusBadge}
+              <span className="font-mono text-[9px] text-[#C5A059] uppercase tracking-wider">
+                {current.pageCount} · {current.fileSize}
               </span>
             </div>
 
-            {/* Document Artifact Card */}
+            {/* Primary Document Card */}
             <div className="p-6 bg-[#0C0B0A] hairline space-y-5 text-left relative overflow-hidden">
               
               <div className="flex justify-between items-baseline hairline-b pb-2">

@@ -178,7 +178,7 @@ export const PublicationPortfolioCaseStudy: React.FC = () => {
           </div>
           <div className="pt-3 px-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-mono text-[10px] text-[#8C867A]">
             <span>FIGURE 2.1 — THE NOTEPAD PARADIGM · RULED PAPER GRID & WARM GRAIN</span>
-            <span className="text-[#C5A059]">LIVE ARTIFACT SPECIMEN</span>
+            <span className="text-[#C5A059]">LIVE INTERFACE SPECIMEN</span>
           </div>
         </div>
 

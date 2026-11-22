@@ -6,12 +6,7 @@ interface SemesterTimelineProps {
 }
 
 export const SemesterTimeline: React.FC<SemesterTimelineProps> = ({ onSelectChapter }) => {
-  const [expandedMilestone, setExpandedMilestone] = useState<string | null>('mile-1');
   const [activeFilter, setActiveFilter] = useState<string>('all');
-
-  const toggleExpand = (id: string) => {
-    setExpandedMilestone(expandedMilestone === id ? null : id);
-  };
 
   const filteredMilestones = activeFilter === 'all'
     ? TIMELINE_MILESTONES
@@ -78,7 +73,6 @@ export const SemesterTimeline: React.FC<SemesterTimelineProps> = ({ onSelectChap
         <div className="space-y-0">
           {filteredMilestones.map((milestone, idx) => {
             const chapter = CHAPTERS_DATA.find((c) => c.id === milestone.chapterId)!;
-            const isExpanded = expandedMilestone === milestone.id;
 
             return (
               <div
@@ -135,64 +129,19 @@ export const SemesterTimeline: React.FC<SemesterTimelineProps> = ({ onSelectChap
 
                   {/* Col 3: Actions (3 cols) */}
                   <div className="lg:col-span-3 flex lg:flex-col items-end justify-between h-full gap-4 pt-2">
-                    <button
-                      onClick={() => toggleExpand(milestone.id)}
-                      className="font-mono text-[10px] uppercase tracking-widest text-[#8C867A] hover:text-[#F5F2EA] transition-colors cursor-pointer text-right py-1"
-                    >
-                      {isExpanded ? '[ − Collapse Dossier ]' : '[ + Expand Dossier ]'}
-                    </button>
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[#8C867A] hidden lg:inline">
+                      DEFENSE READY
+                    </span>
 
                     <button
                       onClick={() => onSelectChapter(milestone.chapterId)}
                       className="font-mono text-[11px] uppercase tracking-widest text-[#C5A059] hover:text-[#F5F2EA] transition-colors cursor-pointer py-1 hairline-b border-[#C5A059]"
                     >
-                      <span>Open Chapter 0{idx + 1} →</span>
+                      <span>Explore Chapter 0{idx + 1} →</span>
                     </button>
                   </div>
 
                 </div>
-
-                {/* Expandable Architectural Dossier Specimen Drawer */}
-                {isExpanded && (
-                  <div className="pb-10 pt-2 lg:pl-[25%] animate-in fade-in duration-200">
-                    <div className="p-6 bg-[#0C0B0A] hairline space-y-6">
-                      
-                      <div className="flex items-baseline justify-between hairline-b pb-3 font-mono text-[10px] uppercase tracking-widest text-[#C5A059]">
-                        <span>Dossier Index · Academic Requirements & Placeholders</span>
-                        <span>[ {chapter.title} ]</span>
-                      </div>
-
-                      {/* Deliverables Specimen Grid */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {chapter.deliverablesPlaceholder.map((del, dIdx) => (
-                          <div
-                            key={dIdx}
-                            className="p-4 bg-[#121110] hairline space-y-2 text-left"
-                          >
-                            <span className="font-mono text-[9px] text-[#C5A059] uppercase block">
-                              DELIVERABLE 0{dIdx + 1}
-                            </span>
-                            <div className="font-serif font-bold text-sm text-[#F5F2EA]">
-                              {del.label}
-                            </div>
-                            <div className="font-mono text-[10px] text-[#8C867A] leading-relaxed">
-                              {del.description}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Editorial Jury Guidance */}
-                      <div className="pt-3 hairline-t font-serif italic text-xs text-[#D9D4C7]">
-                        <span className="font-mono not-italic uppercase text-[9px] tracking-widest text-[#C5A059] mr-2">
-                          [ CANDIDATE DEFENSE NOTE ]
-                        </span>
-                        {chapter.editableNotesPrompt}
-                      </div>
-
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}
