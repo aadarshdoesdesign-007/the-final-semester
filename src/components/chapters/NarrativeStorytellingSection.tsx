@@ -339,20 +339,20 @@ export const NarrativeStorytellingSection: React.FC = () => {
               An experimental typographic art installation exploring the expressive possibilities of letterforms through space, movement and visual experience.
             </p>
 
-            {/* Visual Showcase: Type Is Life Interactive Installation */}
-            <div className="hairline bg-[#080706] relative overflow-hidden rounded-none min-h-[200px]">
+            {/* Visual Showcase: The Shape of Words Typographic Manifesto */}
+            <div className="hairline bg-[#000000] relative overflow-hidden rounded-none min-h-[200px] flex items-center justify-center p-3 sm:p-4">
               <img 
-                src="/assets/studio/typeislife/typeislife-hud.png" 
-                alt="The Shape of Words: Type Is Life Installation Preview"
-                className="w-full h-48 sm:h-52 object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                src="/assets/studio/typeislife/the-shape-of-words-cover.png" 
+                alt="The Shape of Words: Words Have Weight Typographic Manifesto"
+                className="w-full h-48 sm:h-52 object-contain object-center group-hover:scale-102 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080706] via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-[#D9D4C7]">
-                <span className="bg-[#0C0B0A]/80 px-2 py-0.5 hairline text-[#C5A059]">
-                  TYPE IS LIFE · WORDS HAVE WEIGHT
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-[#D9D4C7] pointer-events-none">
+                <span className="bg-[#0C0B0A]/85 px-2 py-0.5 hairline text-[#C5A059]">
+                  WORDS HAVE WEIGHT
                 </span>
-                <span className="bg-[#0C0B0A]/80 px-2 py-0.5 hairline text-[#8C867A]">
-                  CANVAS + CV TELEMETRY
+                <span className="bg-[#0C0B0A]/85 px-2 py-0.5 hairline text-[#8C867A]">
+                  TYPE IS LIFE · INSTALLATION
                 </span>
               </div>
             </div>
