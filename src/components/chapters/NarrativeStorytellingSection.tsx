@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ArrowUpRight, 
   X, 
@@ -14,6 +14,7 @@ export type NarrativeProjectKey = 'percept' | 'kathaputli';
 
 export const NarrativeStorytellingSection: React.FC = () => {
   const [activeModalProject, setActiveModalProject] = useState<NarrativeProjectKey | null>(null);
+  const [isPdfViewerOpen, setIsPdfViewerOpen] = useState<boolean>(false);
   const [perceptActiveTab, setPerceptActiveTab] = useState<'concept' | 'gamification' | 'mascot' | 'interface' | 'specimens'>('concept');
   const [kathaputliActiveTab, setKathaputliActiveTab] = useState<'concept' | 'characters' | 'stagecraft' | 'computervision' | 'installation'>('concept');
   
@@ -25,23 +26,59 @@ export const NarrativeStorytellingSection: React.FC = () => {
   const [puppetTilt, setPuppetTilt] = useState<number>(0);
   const [puppetElevation, setPuppetElevation] = useState<number>(0);
 
-  // Handle ESC key to close modal
+  // Scroll position preservation reference
+  const scrollPositionRef = useRef<number>(0);
+
+  // Handle ESC key and scroll locking with position preservation for PDF Viewer
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setActiveModalProject(null);
-      }
-    };
-    if (activeModalProject) {
+    if (isPdfViewerOpen) {
+      scrollPositionRef.current = window.scrollY;
+      const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setIsPdfViewerOpen(false);
+        }
+      };
+
       window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+        window.scrollTo({
+          top: scrollPositionRef.current,
+          behavior: 'instant' as ScrollBehavior,
+        });
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+  }, [isPdfViewerOpen]);
+
+  // Handle ESC key and scroll locking for Case Study Modal
+  useEffect(() => {
+    if (activeModalProject) {
+      scrollPositionRef.current = window.scrollY;
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setActiveModalProject(null);
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+        window.scrollTo({
+          top: scrollPositionRef.current,
+          behavior: 'instant' as ScrollBehavior,
+        });
+      };
+    }
   }, [activeModalProject]);
 
   return (
@@ -94,7 +131,7 @@ export const NarrativeStorytellingSection: React.FC = () => {
         {/* NARRATIVE PROJECT 01 — PERCEPT */}
         {/* ========================================================= */}
         <div 
-          onClick={() => setActiveModalProject('percept')}
+          onClick={() => setIsPdfViewerOpen(true)}
           className="hairline bg-[#121110] hover:border-[#C5A059]/60 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between group cursor-pointer relative overflow-hidden"
         >
           <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#C5A059]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#C5A059]/10 transition-colors" />
@@ -113,7 +150,13 @@ export const NarrativeStorytellingSection: React.FC = () => {
 
             {/* Title & Descriptor */}
             <div>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold text-[#F5F2EA] group-hover:text-[#C5A059] transition-colors leading-tight">
+              <h3 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsPdfViewerOpen(true);
+                }}
+                className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold text-[#F5F2EA] group-hover:text-[#C5A059] transition-colors leading-tight"
+              >
                 PERCEPT
               </h3>
               <p className="font-serif italic text-lg sm:text-xl text-[#C5A059] mt-1 font-light">
@@ -124,7 +167,7 @@ export const NarrativeStorytellingSection: React.FC = () => {
             {/* Narrative Framing */}
             <p className="text-sm font-sans text-[#D9D4C7]/90 leading-relaxed">
               Transforming design pedagogy into a narrative-driven hero's journey. 
-              Users embark on daily expeditions, guided by an articulate owl mentor through 
+              Users embark on daily expeditions, guided by an articulate companion mentor through 
               sequential micro-challenges that calibrate optical intuition, typography, and design history.
             </p>
 
@@ -148,7 +191,7 @@ export const NarrativeStorytellingSection: React.FC = () => {
               <div className="w-32 h-32 flex-shrink-0 relative flex items-center justify-center">
                 <img 
                   src="/assets/studio/percept/mascot_hero.png" 
-                  alt="PERCEPT Owl Mascot"
+                  alt="PERCEPT Mascot"
                   className="max-h-full max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -161,19 +204,19 @@ export const NarrativeStorytellingSection: React.FC = () => {
                 <span className="text-[#F5F2EA]">DAILY EXPEDITION CADENCE</span>
               </div>
               <div className="flex justify-between hairline-b pb-2">
-                <span className="text-[#D9D4C7]">NARRATIVE MENTOR</span>
-                <span className="text-[#F5F2EA]">THE PERCEPT OWL</span>
+                <span className="text-[#D9D4C7]">NARRATIVE COMPANION</span>
+                <span className="text-[#F5F2EA]">PERCEPT OFFICIAL MASCOT</span>
               </div>
               <div className="flex justify-between hairline-b pb-2">
-                <span className="text-[#D9D4C7]">APTITUDE LAB</span>
-                <span className="text-[#F5F2EA]">4 TACTILE PRACTICE MODES</span>
+                <span className="text-[#D9D4C7]">DOCUMENT EXTENT</span>
+                <span className="text-[#F5F2EA]">7-PAGE DIGITAL PUBLICATION</span>
               </div>
             </div>
           </div>
 
           {/* Bottom Action Trigger */}
           <div className="pt-8 mt-6 hairline-t flex items-center justify-between font-mono text-xs uppercase tracking-widest text-[#F5F2EA] group-hover:text-[#C5A059] transition-colors">
-            <span>OPEN DETAILED CASE STUDY</span>
+            <span>READ FULL PUBLICATION (PDF)</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </div>
         </div>
@@ -284,14 +327,17 @@ export const NarrativeStorytellingSection: React.FC = () => {
               {/* Project Switcher */}
               <div className="hidden md:flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider bg-[#141312] hairline p-1">
                 <button
-                  onClick={() => setActiveModalProject('percept')}
+                  onClick={() => {
+                    setActiveModalProject(null);
+                    setIsPdfViewerOpen(true);
+                  }}
                   className={`px-3 py-1 cursor-pointer transition-colors ${
                     activeModalProject === 'percept' 
                       ? 'bg-[#C5A059] text-[#0C0B0A] font-bold' 
                       : 'text-[#D9D4C7] hover:text-[#F5F2EA]'
                   }`}
                 >
-                  01 PERCEPT
+                  01 PERCEPT (PDF)
                 </button>
                 <button
                   onClick={() => setActiveModalProject('kathaputli')}
@@ -1183,6 +1229,74 @@ export const NarrativeStorytellingSection: React.FC = () => {
             >
               [ Return to Chapter 03 ↑ ]
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* FULL-SCREEN DIGITAL PUBLICATION PDF VIEWER OVERLAY — PERCEPT */}
+      {/* ========================================================================= */}
+      {isPdfViewerOpen && (
+        <div 
+          className="fixed inset-0 z-[150] bg-[#080706]/95 backdrop-blur-xl flex flex-col animate-in fade-in duration-200"
+          role="dialog"
+          aria-modal="true"
+          aria-label="PERCEPT Full Publication PDF Viewer"
+        >
+          {/* Minimal Top Editorial Bar */}
+          <div className="w-full px-6 sm:px-12 py-3.5 bg-[#0C0B0A]/95 hairline-b flex items-center justify-between shrink-0 z-10">
+            <div className="flex items-center gap-3 font-mono text-xs">
+              <span className="w-1.5 h-1.5 bg-[#C5A059]" />
+              <span className="text-[#F5F2EA] uppercase font-bold tracking-wider">
+                PERCEPT · PROJECT PUBLICATION
+              </span>
+              <span className="hidden sm:inline text-[#8C867A]">/</span>
+              <span className="hidden sm:inline text-[#C5A059] font-serif italic text-sm">
+                A gym for the designer's mind
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3 sm:gap-4">
+              <a
+                href="/documents/narrative/percept-pitch-deck.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[#8C867A] hover:text-[#F5F2EA] hairline hover:border-[#8C867A] transition-colors"
+                title="Open PDF directly in new tab"
+              >
+                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>New Tab</span>
+              </a>
+
+              <button
+                onClick={() => setIsPdfViewerOpen(false)}
+                aria-label="Close PDF Viewer"
+                className="flex items-center gap-2 px-3.5 py-1.5 font-mono text-xs uppercase tracking-widest text-[#C5A059] hover:text-[#F5F2EA] hairline hover:border-[#C5A059] transition-colors cursor-pointer bg-[#0C0B0A]"
+              >
+                <span className="hidden sm:inline">[ ESC ]</span>
+                <span>CLOSE</span>
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Centered Document Canvas */}
+          <div 
+            className="flex-grow w-full flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 overflow-hidden"
+            onClick={(e) => {
+              // Close when clicking dark margin outside the PDF frame
+              if (e.target === e.currentTarget) {
+                setIsPdfViewerOpen(false);
+              }
+            }}
+          >
+            <div className="w-full h-full max-w-6xl bg-[#0C0B0A] hairline shadow-2xl overflow-hidden relative flex flex-col">
+              <iframe
+                src="/documents/narrative/percept-pitch-deck.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
+                title="PERCEPT Pitch Deck - Project Publication"
+                className="w-full h-full border-0 bg-[#0C0B0A]"
+              />
+            </div>
           </div>
         </div>
       )}
