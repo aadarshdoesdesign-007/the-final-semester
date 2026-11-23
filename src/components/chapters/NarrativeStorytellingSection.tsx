@@ -7,7 +7,9 @@ import {
   Flame,
   Award,
   Sparkles,
-  Layers
+  Layers,
+  Type,
+  ExternalLink
 } from 'lucide-react';
 
 export type NarrativeProjectKey = 'percept' | 'kathaputli';
@@ -95,7 +97,7 @@ export const NarrativeStorytellingSection: React.FC = () => {
         <div className="max-w-4xl space-y-6">
           <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-[#C5A059]">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>[ OPUS 03 · DUAL NARRATIVE INQUIRIES ]</span>
+            <span>[ OPUS 03 · NARRATIVE &amp; SEQUENTIAL INQUIRIES ]</span>
           </div>
 
           <h3 className="font-cinzel text-3xl sm:text-5xl md:text-6xl font-bold text-[#F5F2EA] leading-[1.05] tracking-tight">
@@ -112,7 +114,7 @@ export const NarrativeStorytellingSection: React.FC = () => {
           <div className="pt-2 flex flex-wrap items-center gap-4 font-mono text-[10px] text-[#8C867A] uppercase tracking-wider">
             <span className="flex items-center gap-1.5 text-[#C5A059]">
               <Layers className="w-3.5 h-3.5" />
-              <span>02 COMPREHENSIVE CASE STUDIES</span>
+              <span>03 CURATED PROJECTS &amp; INSTALLATIONS</span>
             </span>
             <span>·</span>
             <span>INTERACTIVE PROTOTYPES</span>
@@ -298,6 +300,84 @@ export const NarrativeStorytellingSection: React.FC = () => {
           <div className="pt-8 mt-6 hairline-t flex items-center justify-between font-mono text-xs uppercase tracking-widest text-[#F5F2EA] group-hover:text-[#C5A059] transition-colors">
             <span>OPEN DETAILED CASE STUDY</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* NARRATIVE PROJECT 03 — THE SHAPE OF WORDS */}
+        {/* ========================================================= */}
+        <div 
+          onClick={() => window.open('https://typeislife.vercel.app/', '_blank', 'noopener,noreferrer')}
+          className="hairline bg-[#121110] hover:border-[#C5A059]/60 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between group cursor-pointer relative overflow-hidden"
+        >
+          <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#C5A059]/5 rounded-full blur-3xl pointer-events-none group-hover:bg-[#C5A059]/10 transition-colors" />
+
+          <div className="space-y-6 relative z-10">
+            {/* Category & Badge */}
+            <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em]">
+              <span className="text-[#C5A059] flex items-center gap-1.5">
+                <Type className="w-3.5 h-3.5" />
+                <span>NARRATIVE 03 · TYPOGRAPHIC EXPERIMENTATION</span>
+              </span>
+              <span className="text-[#8C867A] hairline px-2 py-0.5 bg-[#0C0B0A]">
+                EXPERIMENTAL ART / INSTALLATION
+              </span>
+            </div>
+
+            {/* Title & Descriptor */}
+            <div>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold text-[#F5F2EA] group-hover:text-[#C5A059] transition-colors leading-tight">
+                THE SHAPE OF WORDS
+              </h3>
+              <p className="font-serif italic text-lg sm:text-xl text-[#C5A059] mt-1 font-light">
+                An Experimental Typographic Installation
+              </p>
+            </div>
+
+            {/* Narrative Framing */}
+            <p className="text-sm font-sans text-[#D9D4C7]/90 leading-relaxed">
+              An experimental typographic art installation exploring the expressive possibilities of letterforms through space, movement and visual experience.
+            </p>
+
+            {/* Visual Showcase: Type Is Life Interactive Installation */}
+            <div className="hairline bg-[#080706] relative overflow-hidden rounded-none min-h-[200px]">
+              <img 
+                src="/assets/studio/typeislife/typeislife-hud.png" 
+                alt="The Shape of Words: Type Is Life Installation Preview"
+                className="w-full h-48 sm:h-52 object-cover object-center group-hover:scale-102 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080706] via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-[#D9D4C7]">
+                <span className="bg-[#0C0B0A]/80 px-2 py-0.5 hairline text-[#C5A059]">
+                  TYPE IS LIFE · WORDS HAVE WEIGHT
+                </span>
+                <span className="bg-[#0C0B0A]/80 px-2 py-0.5 hairline text-[#8C867A]">
+                  CANVAS + CV TELEMETRY
+                </span>
+              </div>
+            </div>
+
+            {/* Core Narrative Metrics */}
+            <div className="space-y-3 font-mono text-[10px] text-[#8C867A]">
+              <div className="flex justify-between hairline-b pb-2">
+                <span className="text-[#D9D4C7]">ORIGINAL IDENTITY</span>
+                <span className="text-[#F5F2EA]">TYPE IS LIFE · WORDS-HAVE-WEIGHT</span>
+              </div>
+              <div className="flex justify-between hairline-b pb-2">
+                <span className="text-[#D9D4C7]">VARIABLE AXES</span>
+                <span className="text-[#F5F2EA]">CONTINUOUS MASS &amp; RESISTANCE</span>
+              </div>
+              <div className="flex justify-between hairline-b pb-2">
+                <span className="text-[#D9D4C7]">INTERACTION PARADIGM</span>
+                <span className="text-[#F5F2EA]">SPATIAL PRESENCE &amp; KINETIC MEMORY</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Action Trigger */}
+          <div className="pt-8 mt-6 hairline-t flex items-center justify-between font-mono text-xs uppercase tracking-widest text-[#F5F2EA] group-hover:text-[#C5A059] transition-colors">
+            <span>LAUNCH LIVE INSTALLATION →</span>
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </div>
         </div>
 

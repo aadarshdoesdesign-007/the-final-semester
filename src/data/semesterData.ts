@@ -96,7 +96,7 @@ export const CHAPTERS_DATA: Chapter[] = [
     title: "NARRATIVE & SEQUENTIAL STORYTELLING",
     subtitle: "One Frame Leads to Another",
     period: "Weeks 11 — 14",
-    synopsis: "Investigating sequential rhetoric and narrative pacing across two interactive paradigms: gamified pedagogical progression (PERCEPT) and mythological computer-vision shadow puppetry (KATHAPUTLI).",
+    synopsis: "Investigating sequential rhetoric and narrative pacing across three interactive paradigms: gamified pedagogical progression (PERCEPT), mythological computer-vision shadow puppetry (KATHAPUTLI), and experimental kinetic typography (THE SHAPE OF WORDS).",
     themeColor: "#E07A28", // Amber
     milestoneTitle: "Milestone III — The Sequential Continuum",
     academicComponents: [
@@ -126,7 +126,7 @@ export const CHAPTERS_DATA: Chapter[] = [
       "In what ways can optical hand tracking preserve the sacred bodily tension between the puppeteer (Sutradhar) and shadow puppet?",
       "How does temporal pacing differ between gamified digital quests and live performative mythic storytelling?"
     ],
-    editableNotesPrompt: "Two interactive narrative case studies: PERCEPT (Duolingo for Designers) and KATHAPUTLI (A Puppet Show Reimagined with computer vision)."
+    editableNotesPrompt: "Three interactive narrative projects: PERCEPT (Duolingo for Designers), KATHAPUTLI (A Puppet Show Reimagined), and THE SHAPE OF WORDS (Type Is Life experimental installation)."
   },
   {
     id: "internship",

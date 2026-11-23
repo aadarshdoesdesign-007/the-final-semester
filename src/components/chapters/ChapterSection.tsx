@@ -71,7 +71,7 @@ export const ChapterSection: React.FC<ChapterSectionProps> = ({
                 : chapter.id === 'publication'
                 ? 'A Digital Self-Portrait · Complete Case Study'
                 : chapter.id === 'narrative'
-                ? 'Dual Narrative Studies · PERCEPT & KATHAPUTLI'
+                ? 'Narrative Continuum · PERCEPT, KATHAPUTLI & THE SHAPE OF WORDS'
                 : chapter.id === 'internship'
                 ? 'Dual Professional Immersion · IIT INDORE & NEWSPACE TECHNOLOGIES'
                 : 'Project Corpus & Visual Storytelling'}
